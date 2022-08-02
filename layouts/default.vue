@@ -1,22 +1,38 @@
 <template>
   <div class="main">
     <base-header />
-    <nuxt />
+    <div class="content"><nuxt /></div>
+    <base-footer />
   </div>
 </template>
 
 <script>
 import BaseHeader from "~/components/common/BaseHeader";
+import BaseFooter from "~/components/common/BaseFooter";
 
 export default {
   name: "default",
   components: {
+    BaseFooter,
     BaseHeader,
   }
 }
 </script>
 
 <style lang="scss">
+
+.content {flex: 1}
+
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html,body, #__nuxt, #__layout{
+  height:100%!important;
+  width: 100%!important;
+}
 
 a.nuxt-link-active {
   font-weight: 600;

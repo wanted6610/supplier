@@ -2,18 +2,20 @@
   <header class="header">
     <div class="container">
       <div class="header-main">
-        <img src="@/static/main-logo.png" alt="Ваш поставщик" class="header__logo">
+        <nuxt-link to="/" exact class="header-main__link">
+          <img src="@/static/main-logo.png" alt="Ваш поставщик" class="header__logo">
+        </nuxt-link>
         <div class="header-buttons">
-          <div class="header-buttons__cart">
+          <nuxt-link to="/cart" class="header-buttons__cart">
             <svg-icon width="27" height="26" name="cart-icon" />
             <span class="header-buttons__count">99</span>
-          </div>
+          </nuxt-link>
           <svg-icon width="34" height="20" name="burger-icon" class="header-buttons__burger" />
         </div>
       </div>
     </div>
     <hr class="header__separator" />
-    <BaseHeaderSearch />
+    <BaseHeaderSearch v-if="$route.path === '/'" />
   </header>
 </template>
 
@@ -33,6 +35,7 @@ export default {
 
 <style lang="scss" scoped>
   .header {
+    margin-bottom: 38px;
     &__logo {
       width: 129px;
       height: 27px;
@@ -48,6 +51,9 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &__link {
+        &::after {display: none}
+      }
     }
     &-buttons {
       display: flex;
@@ -57,6 +63,7 @@ export default {
       }
       &__cart {
         position: relative;
+        &::after {display: none}
       }
       &__count {
         position: absolute;

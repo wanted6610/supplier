@@ -11,11 +11,11 @@ export  default {
           link: '/1'
         },
         {
-          label: 'ДВС',
+          label: 'Каталог ДВС',
           link: '/2'
         },
         {
-          label: 'КПП',
+          label: 'Каталог КПП',
           link: '/3'
         },
         {

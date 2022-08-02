@@ -1,58 +1,78 @@
 <template>
   <header class="header">
-
-    <!--top header-->
     <div class="container">
-      <nav class="menu">
-        <ul class="menu-list">
-          <li class="menu-list__item" v-for="link in menu">
-            <nuxt-link :to="link.link">{{ link.label }}</nuxt-link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <!--top header end-->
-
-    <hr class="header__separator" />
-
-    <!--side header-->
-    <div class="container">
-      <div class="info">
-        <svg-icon fill="red" name="main-logo" width="290" height="61" />
+      <div class="header-main">
+        <img src="@/static/main-logo.png" alt="Ваш поставщик" class="header__logo">
+        <div class="header-buttons">
+          <div class="header-buttons__cart">
+            <svg-icon width="27" height="26" name="cart-icon" />
+            <span class="header-buttons__count">99</span>
+          </div>
+          <svg-icon width="34" height="20" name="burger-icon" class="header-buttons__burger" />
+        </div>
       </div>
     </div>
-    <!--side header end-->
-
+    <hr class="header__separator" />
+    <BaseHeaderSearch />
   </header>
 </template>
 
 <script>
 import mainMenu from "~/mixins/mainMenu";
+import BaseHeaderSearch from "~/components/common/BaseHeaderSearch";
 
 export default {
   name: "BaseHeader",
+  components: {
+    BaseHeaderSearch,
+  },
+
   mixins: [mainMenu],
 }
 </script>
 
 <style lang="scss" scoped>
-  .menu {
-    padding: 60px 0 40px;
-    &-list {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
   .header {
+    &__logo {
+      width: 129px;
+      height: 27px;
+    }
     &__separator {
-      height: 2px;
-      color: red;
-      background-color: $gray;
+      height: 1px;
+      background: $gray;
+      margin: 0;
       border: none;
     }
-  }
-  .info {
-    margin-top: 44px;
+    &-main {
+      padding: 15px 0 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-buttons {
+      display: flex;
+      align-items: center;
+      &__burger {
+        margin-left: 32px;
+      }
+      &__cart {
+        position: relative;
+      }
+      &__count {
+        position: absolute;
+        padding: 3px 3px;
+        background: $purple;
+        color: #fff;
+        border-radius: 50%;
+        min-height: 19px;
+        min-width: 19px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $small;
+        bottom: -8px;
+        right: -19px;
+      }
+    }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <img src="@/static/main-logo.png" alt="Ваш поставщик" class="footer__logo">
+      <svg-icon name="main-logo" class="footer__logo" />
       <div class="footer-links">
         <div class="footer-links__column">
           <nuxt-link to="/" class="footer-links__link">Главная</nuxt-link>

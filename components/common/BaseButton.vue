@@ -2,8 +2,9 @@
   <div class="button">
     <button
       class="btn"
+      @click="btnClick"
       type="button"
-      :class="[{'outline': outline}]"
+      :class="[{'outline': outline, 'filled': filled}]"
       >{{title}}
     </button>
   </div>
@@ -20,20 +21,36 @@ export default {
     outline: {
       type: Boolean,
       default: true,
+    },
+    filled: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  methods: {
+    btnClick() {
+      console.log('btn clicked!')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.button {width: 100%}
 .btn {
+  padding: 19px 43px;
+  border-radius: 40px;
+  font-size: $normal;
+  font-weight: 600;
   &.outline {
     border: 2px solid $purple;
-    border-radius: 40px;
-    padding: 19px 43px;
     color: $purple;
-    font-size: $normal;
-    font-weight: 600;
+    background: inherit;
+  }
+  &.filled {
+    background: $purple;
+    color: #fff;
+    border: none;
   }
 }
 </style>

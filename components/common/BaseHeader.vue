@@ -3,12 +3,12 @@
     <div class="container">
       <div class="header-main">
         <nuxt-link to="/" exact class="header-main__link">
-          <img src="@/static/main-logo.png" alt="Ваш поставщик" class="header__logo">
+          <svg-icon name="main-logo" class="header__logo" />
         </nuxt-link>
         <div class="header-buttons">
           <nuxt-link to="/cart" class="header-buttons__cart">
             <svg-icon width="27" height="26" name="cart-icon" />
-            <span class="header-buttons__count">99</span>
+            <span class="header-buttons__count">5</span>
           </nuxt-link>
           <svg-icon width="34" height="20" name="burger-icon" class="header-buttons__burger" />
         </div>
